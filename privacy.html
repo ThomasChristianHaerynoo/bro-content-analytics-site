@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Privacy Policy - Bro Content Analytics</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><nav><a href="index.html">Home</a><a href="terms.html">Terms of Service</a><a href="privacy.html">Privacy Policy</a></nav></header>
+<main>
+<h1>Privacy Policy</h1>
+<p>Bro Content Analytics is operated by Thomas Christian Haeryono, an individual developer. The tool is still under development, so this policy describes its intended behavior.</p>
+<h2>Data flow</h2>
+<ol>
+<li>The account owner signs in through TikTok's official Login Kit and approves the requested permissions.</li>
+<li>The tool receives an authorization code on a local redirect address on the owner's own computer (<code>http://127.0.0.1:3455/callback/</code>) and exchanges it for an access token.</li>
+<li>The tool calls the TikTok Display API to fetch the owner's public video data.</li>
+<li>The data is processed locally into Excel and PDF reports.</li>
+</ol>
+<p>The tool is intended to run on the operator's own computer. This website only provides information; it has no login, forms, or analytics collection.</p>
+<h2>Data collected</h2>
+<p>Through the Display API, the tool retrieves basic profile information and, for the owner's public videos, details such as title or description, publish time, and counts of views, likes, comments, and shares. The tool requests the TikTok scopes <code>user.info.basic</code> and <code>video.list</code>. These scopes have been requested but are not confirmed as approved by TikTok. The exact fields available depend on what TikTok grants.</p>
+<h2>OAuth credentials</h2>
+<p>The app's client key and client secret are kept in a local <code>.env</code> file, and access tokens are kept in a local <code>.secrets/</code> folder. Both are excluded from version control and from this website. This policy makes no claim that these files are encrypted.</p>
+<h2>Storage</h2>
+<p>Raw API responses, cleaned data, and generated reports are stored as files on the owner's computer. They are not uploaded to any server operated by this project. The tool is not designed to upload this data anywhere.</p>
+<h2>Retention</h2>
+<p>The tool does not delete data automatically. Local data, tokens, and reports remain on the computer until the owner manually deletes them.</p>
+<h2 id="deletion">Deletion</h2>
+<p>To delete saved data, manually delete the files in the project's <code>data/raw/</code>, <code>data/cleaned/</code>, <code>reports/excel/</code> and <code>reports/pdf/</code> folders. To delete saved tokens, delete the files in <code>.secrets/</code>. To remove the app credentials, delete the <code>.env</code> file. Also delete any copies you made elsewhere (backups, cloud sync, emailed reports).</p>
+<h2 id="revoking">Revoking access</h2>
+<p>The owner can revoke the tool's access in TikTok's app settings (security and permissions / connected apps; exact menu names may vary). After revoking, the tool can no longer retrieve data, and stored tokens should be deleted.</p>
+<h2>Contact</h2>
+<p><a href="mailto:thoms2207@gmail.com">thoms2207@gmail.com</a></p>
+</main>
+<footer>Operator: Thomas Christian Haeryono, individual developer · Contact: <a href="mailto:thoms2207@gmail.com">thoms2207@gmail.com</a><br>Last updated: October 2, 2026</footer>
+</body>
+</html>
